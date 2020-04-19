@@ -1,4 +1,4 @@
-program VTK
+program VTK3D
     implicit none
     double precision, allocatable, dimension(:):: x,y,z
     double precision,allocatable,dimension(:,:,:)::M3D_1,M3D_2,M3D_3
@@ -25,7 +25,7 @@ program VTK
             end do
         end do
     end do
-    open(unit=1, file ='contour3D.vtk')
+    open(unit=1, file ='Array3D.vtk')
     write ( 1,'(a)' )'# vtk DataFile Version 3.0'
     write ( 1,'(a)' ) 'Non-uniform Rectilinear - Rectilinear Grid'
     write ( 1,'(a)' ) 'ASCII'
@@ -48,4 +48,4 @@ program VTK
     write ( 1, '(a)' ) 'LOOKUP_TABLE default'
     write ( 1, '(f22.14)' ) (((M3D_3(i,j,k),i=1,(nx-1)),j=1,(ny-1)),k=1,(nz-1))    
     deallocate(M3D_1,M3D_2,M3D_3)
-end program VTK
+end program VTK3D
